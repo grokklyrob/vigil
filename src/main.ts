@@ -82,7 +82,7 @@ const input = createInput({
 function resize(): void {
   const w = Math.max(1, window.innerWidth)
   const h = Math.max(1, window.innerHeight)
-  renderer.setSize(w, h, false)
+  renderer.setSize(w, h)
   camera.aspect = w / h
   camera.updateProjectionMatrix()
   post.resize(w, h)
