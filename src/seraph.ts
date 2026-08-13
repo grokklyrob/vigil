@@ -60,10 +60,10 @@ void main() {
   T = normalize(cross(B, N));
   mat3 tbn = mat3(T, B, N);
 
-  float restLen = length(restPosition);
-  vec3 exploded = restPosition + N * (2.5 * uFormRadius - restLen);
-  vec3 anchor = mix(exploded, restPosition, uStillness);
-  anchor += N * uGrabExplode;
+  float restLen = max(length(restPosition), 0.0001);
+  float scatter = mix(1.48, 1.0, uStillness);
+  vec3 anchor = restPosition * scatter;
+  anchor += N * ((0.22 * uFormRadius) * (1.0 - uStillness) + uGrabExplode);
 
   vec3 world = anchor + tbn * local;
   vec3 wn = normalize(tbn * spin * vec3(0.0, 0.0, 1.0));

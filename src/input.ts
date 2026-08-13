@@ -41,6 +41,7 @@ export function createInput(opts: {
   let travel = 0;
   let lastX = 0;
   let lastY = 0;
+  let primed = false;
   let touchCount = 0;
 
   const drone = document.querySelector('#drone') as HTMLButtonElement;
@@ -79,6 +80,12 @@ export function createInput(opts: {
   }
 
   function onMove(e: PointerEvent): void {
+    if (!primed) {
+      lastX = e.clientX;
+      lastY = e.clientY;
+      primed = true;
+      return;
+    }
     const dx = e.clientX - lastX;
     const dy = e.clientY - lastY;
     const dist = Math.hypot(dx, dy);

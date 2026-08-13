@@ -15,8 +15,8 @@ export function prefersReducedMotion(): boolean {
 }
 
 export function createStillness(reduced: boolean) {
-  let raw = reduced ? 1 : 0;
-  let lastInput = performance.now();
+  let raw = 1;
+  let lastInput = performance.now() - RISE_SECONDS * 1000;
   let held = false;
 
   function disturb(): void {

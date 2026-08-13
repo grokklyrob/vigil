@@ -43,7 +43,7 @@ renderer.outputColorSpace = SRGBColorSpace
 const scene = new Scene()
 scene.background = new Color(0x0d0d14)
 const camera = new PerspectiveCamera(32, 1, 0.1, 40)
-camera.position.set(0, 0.08, 5.35)
+camera.position.set(0, 0.12, 6.1)
 camera.lookAt(0, 0, 0)
 
 const seraph = createSeraph(scene)
